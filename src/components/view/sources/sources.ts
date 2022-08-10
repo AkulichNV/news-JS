@@ -4,10 +4,10 @@ import './sources.css';
 class Sources {
     draw(data: SourcesNews[]) {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLElement;
+        const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLMetaElement;
 
         data.forEach((item: SourcesNews) => {
-            const sourceClone = sourceItemTemp.cloneNode(true) as HTMLElement; // delete content
+            const sourceClone = (sourceItemTemp.content as unknown as DocumentFragment).cloneNode(true) as DocumentFragment;
 
             sourceClone!.querySelector('.source__item-name')!.textContent = item.name;
             sourceClone!.querySelector('.source__item')!.setAttribute('data-source-id', item.id);
