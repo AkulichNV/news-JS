@@ -10,7 +10,7 @@ class News {
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLMetaElement;
 
         news.forEach((item: Articles, idx: number) => {
-            const newsClone = (newsItemTemp.content as unknown as DocumentFragment).cloneNode(true) as DocumentFragment;
+            const newsClone = (newsItemTemp.content as unknown as DocumentFragment).cloneNode(true) as HTMLElement;
 
             if (idx % 2) newsClone!.querySelector('.news__item')!.classList.add('alt');
 
